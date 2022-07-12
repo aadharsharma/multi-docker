@@ -2,13 +2,13 @@ sudo: required
 services:
   - docker
 
-before_install
+before_install:
   - docker build -t aadharsharma/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run aadharsharma/react-test npm test -- --coverage
 
-after_success
+after_success:
   - docker build -t aadharsharma/multi-client ./client
   - docker build -t aadharsharma/multi-nginx ./nginx
   - docker build -t aadharsharma/multi-server ./server
