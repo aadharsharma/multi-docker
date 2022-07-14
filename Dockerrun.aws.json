@@ -1,12 +1,12 @@
 {
-    "AWSEBDockerrunVersion": 3,
+    "AWSEBDockerrunVersion": 2,
     "containerDefinitions": [
         {
             "name": "client",
             "image": "aadharsharma/multi-client",
             "hostname": "client",
             "essential": false,
-            "memory": "128"
+            "memory": 128
 
         },
         {
@@ -14,14 +14,14 @@
             "image": "aadharsharma/multi-server",
             "hostname": "api",
             "essential": false,
-            "memory": "128"
+            "memory": 128
 
         },
         {
             "name": "worker",
             "image": "aadharsharma/multi-worker",
             "essential": false,
-            "memory": "128"
+            "memory": 128
 
         },
         {
@@ -36,7 +36,7 @@
             ],
             
             "links": [ "client","server"],
-            "memory": "128"
+            "memory": 128
 
         }
     ]
