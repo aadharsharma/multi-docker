@@ -1,0 +1,40 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "aadharsharma/multi-client",
+            "hostname": "client",
+            "essential": false
+
+        },
+        {
+            "name": "server",
+            "image": "aadharsharma/multi-server",
+            "hostname": "api",
+            "essential": false
+
+        },
+        {
+            "name": "worker",
+            "image": "aadharsharma/multi-worker",
+            "essential": false
+
+        },
+        {
+            "name": "nginx",
+            "image": "aadharsharma/multi-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            
+            "links": [ "client","server"]
+
+
+        }
+    ]
+}
